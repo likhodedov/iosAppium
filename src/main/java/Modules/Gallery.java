@@ -16,6 +16,7 @@ public class Gallery {
     private By move_to_top=By.xpath("//XCUIElementTypeApplication[@name=\"Movavi Clips\"]/" +
             "XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/" +
             "XCUIElementTypeOther/XCUIElementTypeCollectionView/XCUIElementTypeCell[2]/XCUIElementTypeOther/XCUIElementTypeImage");
+    private String videoitem_duration="/XCUIElementTypeOther/XCUIElementTypeStaticText[2]";
 
     private final WebDriver driver;
     private int countVideoItem;
@@ -34,11 +35,10 @@ public class Gallery {
     }
 
     public Gallery CheckVideoItem (int id){
-
         driver.findElement(By.xpath(videoitem_start+id+videoitem_end)).click();
-        videoduration+=GetDurationVideoItem(id);
+        videoduration+=GetDurationVideoItem(videoitem_start+id+videoitem_end);
         countVideoItem++;
-        System.out.print("Video checked with id"+ id+"\n");
+        System.out.print("\n"+"Video checked with id "+ id+"\n");
         return this;
     }
 
@@ -54,9 +54,13 @@ public class Gallery {
     }
 
     //TODO: Получаем длительность выбранного видео и возвращаем количество секунд
-    private int GetDurationVideoItem(int id) {
-        int s=2;
-       return s;
+    private int GetDurationVideoItem(String source) {
+
+        String duration=driver.findElement(By.xpath(source+videoitem_duration)).getText();
+        System.out.print(duration);
+
+        System.out.print("\n"+ParseTime(duration));
+        return ParseTime(duration);
     }
 
     public int getVideoduration(){
@@ -67,8 +71,6 @@ public class Gallery {
         return countVideoItem;
     }
 
-
-    //TODO: Скролл к началу списка видео
     public Gallery ScrolltoTop(){
         driver.findElement(move_to_top).click();
         return this;
@@ -84,4 +86,8 @@ public class Gallery {
         return this;
     }
 
+    private int ParseTime (String timestring){
+        String[] time= timestring.split(":");
+        return Integer.parseInt(time[0])*60+Integer.parseInt(time[1]);
+    }
 }

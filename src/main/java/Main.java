@@ -34,7 +34,7 @@ public class Main {
         iPad_mini_2
         */
 
-        capabilities=ConfigureDevice.SelectoriOS("iPhone_7");
+        capabilities=ConfigureDevice.SelectoriOS("iPad_Air_2");
 
 
         WebDriver driver = new IOSDriver(new URL("http://127.0.0.1:4723/wd/hub"),capabilities);
@@ -47,12 +47,16 @@ public class Main {
         driver.findElement(By.name("Allow")).click();
 
         Gallery gallery=new Gallery(driver);
-        gallery.ScrolltoTop();
+        //gallery.ScrolltoTop();
        // gallery.CheckVideoItem(1);
         gallery.CheckVideoItem(3);
         gallery.CheckVideoItem(4);
-
+        gallery.CheckVideoItem(5);
+        System.out.print(gallery.getCountVideoItem()+"\n");
+        System.out.print(gallery.getVideoduration()+"\n");
         //gallery.CheckVideoCapture();
+        //gallery.CheckVideoCapture();
+
 
         //driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
 

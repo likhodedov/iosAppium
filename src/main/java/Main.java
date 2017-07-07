@@ -54,6 +54,7 @@ public class Main {
         gallery.CheckVideoItem(5);
         System.out.print(gallery.getCountVideoItem()+"\n");
         System.out.print(gallery.getVideoduration()+"\n");
+
         //gallery.CheckVideoCapture();
         //gallery.CheckVideoCapture();
 

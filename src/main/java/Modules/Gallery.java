@@ -17,6 +17,7 @@ public class Gallery {
             "XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/" +
             "XCUIElementTypeOther/XCUIElementTypeCollectionView/XCUIElementTypeCell[2]/XCUIElementTypeOther/XCUIElementTypeImage");
     private String videoitem_duration="/XCUIElementTypeOther/XCUIElementTypeStaticText[2]";
+    public static VideoCapture capture;
 
     private final WebDriver driver;
     private int countVideoItem;
@@ -50,6 +51,7 @@ public class Gallery {
 
     public Gallery CheckVideoCapture(){
         driver.findElement(gallery_video_capture).click();
+       capture= new VideoCapture(driver);
         return this;
     }
 

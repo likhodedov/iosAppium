@@ -3,9 +3,6 @@ package Modules;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-/**
- * Created by test_user_1 on 05.07.17.
- */
 public class VideoCapture {
     private By type_of_capture= By.name("CameraMode");
     private By cancel_capture= By.name("VideoCapture");
@@ -50,9 +47,4 @@ public class VideoCapture {
     private String GetCapturedTime (){
         return driver.findElement(captured_time).getText();
     }
-
-
-
-
-
 }

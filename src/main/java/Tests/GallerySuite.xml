@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Gallery suite" >
+
+    <test name="iPhone X">
+        <parameter name="Device_ID" value="00d6fa432ea037d2768c947a7c8f1ef4c2f5333a"/>
+        <classes>
+            <class name="Tests.GalleryTest"/>
+        </classes>
+    </test>
+
+
+
+
+
+</suite>

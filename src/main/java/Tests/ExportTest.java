@@ -1,16 +1,19 @@
 package Tests;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
 /**
  * Created by test_user_1 on 04.07.17.
  */
 public class ExportTest {
 
-    @Before
+    @BeforeClass
+    public void Ts2te(){
 
+    }
 
 
     @Test
@@ -22,7 +25,7 @@ public class ExportTest {
 
 
 
-    @After
+    @AfterClass
     public void TW(){
 
     }
